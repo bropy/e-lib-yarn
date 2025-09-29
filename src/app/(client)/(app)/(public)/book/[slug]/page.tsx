@@ -4,7 +4,7 @@ import { HydrationBoundary, dehydrate } from '@tanstack/react-query';
 import { getQueryClient } from '@/pkg/libraries/rest-api/service/rest-api.service';
 import { bookDetailQueryOptions } from '@/pkg/libraries/rest-api/service/book.queries';
 import { openLibraryService } from '@/pkg/libraries/rest-api/service/openlibrary.service';
-import BookDetailClient from './elements/book-detail-client';
+import { BookDetailModule } from '@/app/(client)/modules/book-detail';
 
 export const dynamic = 'force-static';
 export const revalidate = 3600;
@@ -49,7 +49,7 @@ const BookDetailPage: FC<Readonly<IProps>> = async ({ params }) => {
 
     return (
       <HydrationBoundary state={dehydrate(queryClient)}>
-        <BookDetailClient bookKey={fullKey} />
+        <BookDetailModule bookKey={fullKey} />
       </HydrationBoundary>
     );
   } catch {

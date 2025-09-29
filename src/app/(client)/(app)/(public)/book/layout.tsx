@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { type FC, type ReactNode } from 'react';
 
 export const metadata: Metadata = {
   title: {
@@ -8,10 +9,13 @@ export const metadata: Metadata = {
   description: "Explore book details, read reviews, and discover your next favorite book.",
 };
 
-export default function BookLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+interface IProps {
+  children: ReactNode;
+}
+
+const BookLayout: FC<Readonly<IProps>> = (props) => {
+  const { children } = props;
   return children;
 }
+
+export default BookLayout;

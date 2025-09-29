@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { type FC, type ReactNode } from 'react';
 import { Geist, Geist_Mono } from "next/font/google";
 import "@/config/styles/globals.css";
 import RestApiProvider from "@/pkg/libraries/rest-api/rest-api.provider";
@@ -18,11 +19,12 @@ export const metadata: Metadata = {
   description: "Discover your next great read from our extensive digital collection",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+interface IProps {
+  children: ReactNode;
+}
+
+const RootLayout: FC<Readonly<IProps>> = (props) => {
+  const { children } = props;
   return (
     <html lang="en" className="light">
       <body
@@ -35,3 +37,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+export default RootLayout;

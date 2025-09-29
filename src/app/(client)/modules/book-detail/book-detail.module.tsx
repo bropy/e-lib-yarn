@@ -1,5 +1,6 @@
 'use client';
 
+import { type FC } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Card, CardBody, CardHeader, Image, Chip, Button, Textarea, Divider, Input } from '@heroui/react';
 import { useForm } from 'react-hook-form';
@@ -15,11 +16,12 @@ interface CommentForm {
   text: string;
 }
 
-interface BookDetailClientProps {
+interface IProps {
   bookKey: string;
 }
 
-const BookDetailClient = ({ bookKey }: BookDetailClientProps) => {
+const BookDetailModule: FC<Readonly<IProps>> = (props) => {
+  const { bookKey } = props;
   const router = useRouter();
   const { toggleLike, isLiked, addComment, getCommentsForBook } = useBookStore();
   
@@ -221,4 +223,4 @@ const BookDetailClient = ({ bookKey }: BookDetailClientProps) => {
   );
 };
 
-export default BookDetailClient;
+export default BookDetailModule;
