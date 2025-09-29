@@ -4,7 +4,7 @@ import { Card, CardBody } from '@heroui/react'
 import ContainerComponent from '../../shared/ui/container/container.component'
 import BookSearch from '../../features/book-search.component'
 import PopularBooks from '../../features/popular-books.component'
-import { useBookStore } from '../../shared/store/book-store'
+import { useBookStore } from '../../shared/store'
 import { showBookSearchFlag } from '../../flags'
 
 //component

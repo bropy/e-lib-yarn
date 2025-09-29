@@ -4,13 +4,12 @@ import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 
 // interface
-interface Comment {
+export interface Comment {
   id: string
   bookKey: string
   text: string
   timestamp: number
 }
-export type { Comment }
 interface BookStore {
   likedBooks: string[]
   comments: Comment[]

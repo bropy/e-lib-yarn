@@ -4,7 +4,7 @@ import React, { FC } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { Card, CardBody, CardHeader, Image, Chip, Button } from '@heroui/react'
 import { popularBooksQueryOptions, openLibraryService, type Book } from '@/pkg/libraries/rest-api'
-import { useBookStore } from '../shared/store/book-store'
+import { useBookStore } from '../shared/store'
 import { useRouter } from 'next/navigation'
 import { HeartIcon } from 'lucide-react'
 

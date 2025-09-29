@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Card, CardBody, CardHeader, Image, Chip, Button, Textarea, Divider, Input } from '@heroui/react';
 import { useForm } from 'react-hook-form';
 import { openLibraryService } from '@/pkg/libraries/rest-api/service/openlibrary.service';
-import { useBookStore, type Comment } from '@/app/(client)/shared/store/book-store';
+import { useBookStore, type Comment } from '@/app/(client)/shared/store';
 import { HeartIcon, ArrowLeftIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import ContainerComponent from '@/app/(client)/shared/ui/container/container.component';
