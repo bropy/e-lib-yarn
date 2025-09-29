@@ -1,4 +1,4 @@
-import { restApiFetcher } from '../fetcher'
+import { externalApiFetcher } from '../fetcher/rest-api.fetcher'
 
 export interface Book {
   key: string;
@@ -35,7 +35,7 @@ export const openLibraryService = {
       const topicIndex = Math.floor(Date.now() / 30000) % searchTopics.length;
       const currentTopic = searchTopics[topicIndex];
       
-      const data: OpenLibraryResponse = await restApiFetcher
+      const data: OpenLibraryResponse = await externalApiFetcher
         .get(`search.json?subject=${currentTopic}&sort=rating desc&limit=10&fields=key,title,author_name,cover_i,first_publish_year,edition_count,subject`, {
           prefixUrl: 'https://openlibrary.org/'
         })
@@ -49,7 +49,7 @@ export const openLibraryService = {
 
   async searchBooks(query: string): Promise<Book[]> {
     try {
-      const data: OpenLibraryResponse = await restApiFetcher
+      const data: OpenLibraryResponse = await externalApiFetcher
         .get(`search.json?title=${encodeURIComponent(query)}&limit=20&fields=key,title,author_name,cover_i,first_publish_year,edition_count,subject`, {
           prefixUrl: 'https://openlibrary.org/'
         })
@@ -63,7 +63,7 @@ export const openLibraryService = {
 
   async getBookByKey(key: string): Promise<Book | null> {
     try {
-      const data: OpenLibraryResponse = await restApiFetcher
+      const data: OpenLibraryResponse = await externalApiFetcher
         .get(`search.json?q=key:${key}&fields=key,title,author_name,cover_i,first_publish_year,edition_count,subject`, {
           prefixUrl: 'https://openlibrary.org/'
         })

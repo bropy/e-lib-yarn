@@ -42,20 +42,7 @@ const BookDetailModule: FC<Readonly<IProps>> = (props) => {
     reset();
   };
 
-  if (isLoading) {
-    return (
-      <ContainerComponent className="w-full py-8">
-        <div className="flex justify-center items-center min-h-64">
-          <p className="text-gray-600">Loading...</p>
-        </div>
-      </ContainerComponent>
-    );
-  }
-
-  if (!book) {
-    return null;
-  }
-
+  // return
   return (
     <ContainerComponent className="w-full py-8 space-y-8">
       <div className="flex items-center">
@@ -73,10 +60,10 @@ const BookDetailModule: FC<Readonly<IProps>> = (props) => {
           <Card className="h-fit">
             <CardBody className="p-0">
               <div className="aspect-[3/4] w-full bg-gray-100 rounded-lg overflow-hidden">
-                {book.cover_i ? (
+                {book?.cover_i ? (
                   <Image
-                    src={openLibraryService.getCoverImageUrl(book.cover_i, 'L')}
-                    alt={book.title}
+                    src={openLibraryService.getCoverImageUrl(book?.cover_i, 'L')}
+                    alt={book?.title}
                     className="w-full h-full object-cover"
                     fallbackSrc="/placeholder-book.svg"
                   />
@@ -93,7 +80,7 @@ const BookDetailModule: FC<Readonly<IProps>> = (props) => {
         <div className="w-full lg:w-2/3 space-y-6">
           <div className="space-y-4">
             <div className="flex items-start justify-between">
-              <h1 className="text-3xl font-bold text-gray-900">{book.title}</h1>
+              <h1 className="text-3xl font-bold text-gray-900">{book?.title}</h1>
               <Button
                 isIconOnly
                 size="lg"
@@ -107,26 +94,26 @@ const BookDetailModule: FC<Readonly<IProps>> = (props) => {
               </Button>
             </div>
 
-            {book.author_name && book.author_name.length > 0 && (
+            {book?.author_name && book?.author_name.length > 0 && (
               <p className="text-xl text-gray-600">
                 by {book.author_name.join(', ')}
               </p>
             )}
 
             <div className="flex flex-wrap gap-2">
-              {book.first_publish_year && (
+              {book?.first_publish_year && (
                 <Chip color="primary" variant="flat">
                   Published: {book.first_publish_year}
                 </Chip>
               )}
-              {book.edition_count && book.edition_count > 1 && (
+              {book?.edition_count && book?.edition_count > 1 && (
                 <Chip color="secondary" variant="flat">
                   {book.edition_count} editions
                 </Chip>
               )}
             </div>
 
-            {book.subject && book.subject.length > 0 && (
+            {book?.subject && book?.subject.length > 0 && (
               <div className="space-y-2">
                 <h3 className="font-semibold text-gray-900">Subjects:</h3>
                 <div className="flex flex-wrap gap-1">

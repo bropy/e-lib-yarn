@@ -1,1 +1,1 @@
-export { restApiFetcher } from './rest-api.fetcher'
+export { restApiFetcher, externalApiFetcher } from './rest-api.fetcher'
