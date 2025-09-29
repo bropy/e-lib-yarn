@@ -9,12 +9,14 @@ export const metadata: Metadata = {
   description: "Explore book details, read reviews, and discover your next favorite book.",
 };
 
+// interface
 interface IProps {
   children: ReactNode;
 }
-
+// component
 const BookLayout: FC<Readonly<IProps>> = (props) => {
   const { children } = props;
+  // return
   return children;
 }
 

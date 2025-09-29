@@ -19,12 +19,14 @@ export const metadata: Metadata = {
   description: "Discover your next great read from our extensive digital collection",
 };
 
+// interface
 interface IProps {
   children: ReactNode;
 }
-
+// component
 const RootLayout: FC<Readonly<IProps>> = (props) => {
   const { children } = props;
+  // return
   return (
     <html lang="en" className="light">
       <body

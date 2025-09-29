@@ -27,10 +27,12 @@ export async function generateStaticParams() {
   }
 }
 
+// interface
 interface IProps {
   params: Promise<{ slug: string }>;
 }
 
+// component
 const BookDetailPage: FC<Readonly<IProps>> = async ({ params }) => {
   const { slug } = await params;
   
@@ -46,7 +48,7 @@ const BookDetailPage: FC<Readonly<IProps>> = async ({ params }) => {
     if (!book) {
       notFound();
     }
-
+    // return
     return (
       <HydrationBoundary state={dehydrate(queryClient)}>
         <BookDetailModule bookKey={fullKey} />

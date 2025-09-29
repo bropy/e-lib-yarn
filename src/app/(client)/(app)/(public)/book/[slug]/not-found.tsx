@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import ContainerComponent from '@/app/(client)/shared/ui/container/container.component';
 
+// component
 export default function NotFound() {
   return (
     <ContainerComponent className="w-full py-16">

@@ -9,13 +9,13 @@ import { popularBooksQueryOptions } from "@/pkg/libraries/rest-api/service/book.
 export const dynamic = 'force-static'
 export const revalidate = 120
 
-
+// component
 const Page: FC = async () => {
 
   const clientQuery = getQueryClient()
   await clientQuery.prefetchQuery(popularBooksQueryOptions())
 
-
+  
   return (
     <HydrationBoundary state={dehydrate(clientQuery)}>
       <HomeModule />

@@ -11,6 +11,7 @@ import { useRouter } from 'next/navigation';
 import ContainerComponent from '@/app/(client)/shared/ui/container/container.component';
 import { bookDetailQueryOptions } from '@/pkg/libraries/rest-api/service/book.queries';
 
+// interface
 interface CommentForm {
   author: string;
   text: string;
@@ -19,7 +20,7 @@ interface CommentForm {
 interface IProps {
   bookKey: string;
 }
-
+// component
 const BookDetailModule: FC<Readonly<IProps>> = (props) => {
   const { bookKey } = props;
   const router = useRouter();
